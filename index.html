@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RISA TAKEI Portfolio</title>
+    <!-- WEBフォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+JP&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- aos.css -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <!-- aos.js -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Vue.js -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script src="./js/common.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <div class="page-wrap">
+            <header>
+                <div class="header" id="top">
+                    <div class="logo">
+                        <!-- <a href="index.html">RISA<br>TAKEI</a> -->
+                        <a href="index.html"><img class="logo-img" src="./img/logo.jpg" alt=""></a>
+                    </div>
+                    <img src="/img/django.png" alt="">
+                    <div class="header-menu-wrap">
+                        <nav>
+                            <ul class="header-menu">
+                                <li><a class="header-menu-item" href="index.html#work">Work</a></li>
+                                <li><a class="header-menu-item" href="index.html#about">About</a></li>
+                                <li><a class="header-menu-item" href="index.html#contact">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <!-- hamburger menu -->
+                        <div class="hamburger" :class="{active: open}" @click="toggleButton">
+                            <span class="border1"></span>
+                            <span class="border2"></span>
+                        </div>
+                        <div v-show="open" class="nav">
+                            <nav>
+                                <ul>
+                                    <li><a href="index.html#work" :class="{ changestyle : hoverChange }" v-on:mouseover="mouseOverWork" v-on:mouseleave="mouseLeaveWork">Work</a></li>
+                                    <li><a href="index.html#about">About</a></li>
+                                    <li><a href="index.html#contact">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+            <main>
+                <!-- first view -->
+                <div class="fv">
+                    <div class="fv-title">
+                        <h1 class="fv-title__main">RISA<br>TAKEI</h1>
+                        <h3 class="fv-title__sub">Portfolio</h3>
+                        <div class="scrolldown1"><span>Scroll</span></div>
+                    </div>
+                </div>
+                <!-- Work -->
+                <section class="section work" id="work">
+                    <div class="section-headline" data-aos="fade-right" data-aos-offset="100" data-aos-easing="ease-in-sine">
+                        <h2 class="section-headline__title">Work</h2>
+                    </div>
+                    <div class="work-wrap">
+                        <div class="work-content" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="work-content__title">
+                                <h3>Web Site</h3>
+                            </div>
+                            <div class="work-content-wrap">
+                                <article class="article">
+                                    <a href="https://takeirisa.github.io/woodenstudio/" target="_blank" rel="noopener noreferrer">
+                                        <transition name="fade">
+                                            <div class="work-img">
+                                                <div class="img-box" v-on:mouseover="mouseOver1" v-on:mouseleave="mouseLeave1">
+                                                    <img class="work-content__img" src="./img/woodenstudio.png" alt="">
+                                                    <div class="img-box-overlay" v-show="display1">
+                                                        <h4 class="img-box-overlay__title">WOODEN STUDIO</h4>
+                                                        <p class="img-box-overlay__sub">HTML<br>Sass<br>Javascript</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </transition>
+                                    </a>
+                                </article>
+                                <article class="article">
+                                    <a href="https://k-django.jp/" target="_blank" rel="noopener noreferrer">
+                                        <div class="work-img">
+                                            <div class="img-box" v-on:mouseover="mouseOver2" v-on:mouseleave="mouseLeave2">
+                                                <img class="work-content__img" src="./img/django.png" alt="">
+                                                <div class="img-box-overlay" v-show="display2">
+                                                    <h4 class="img-box-overlay__title">Live House</h4>
+                                                    <p class="img-box-overlay__sub">Word Press</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </article>
+                                <article class="article">
+                                    <a href="">
+                                        <div class="work-img">
+                                            <div class="img-box" v-on:mouseover="mouseOver3" v-on:mouseleave="mouseLeave3">
+                                                <img class="work-content__img" src="./img/hairsalon.jpg" alt="">
+                                                <div class="img-box-overlay" v-show="display3">
+                                                    <h4 class="img-box-overlay__title">Hair Salon</h4>
+                                                    <p class="img-box-overlay__sub">準備中...</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </article>
+                                
+                            </div>
+                            <!-- <div class="btn-wrap"  data-aos="fade-up" data-aos-duration="1000">
+                                <a href="" class="btn">More</a>
+                            </div> -->
+                        </div>
+                        <div class="work-content" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="work-content__title">
+                                <h3>Web App</h3>
+                            </div>
+                            <div class="work-content-wrap">
+                                <article class="article">
+                                    <a href="https://task-app-4a570.web.app/" target="_blank" rel="noopener noreferrer">
+                                        <div class="work-img">
+                                            <div class="img-box" v-on:mouseover="mouseOver4" v-on:mouseleave="mouseLeave4">
+                                                <img class="work-content__img" src="./img/task-app.png" alt="">
+                                                <div class="img-box-overlay" v-show="display4">
+                                                    <h4 class="img-box-overlay__title">Task To Do</h4>
+                                                    <p class="img-box-overlay__sub">HTML<br>Sass<br>Vue</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </article>
+                                <article class="article">
+                                    <a href="https://ienakasaien.herokuapp.com/" target="_blank" rel="noopener noreferrer">
+                                        <div class="work-img">
+                                            <div class="img-box" v-on:mouseover="mouseOver5" v-on:mouseleave="mouseLeave5">
+                                                <img class="work-content__img" src="./img/ienakasaien.png" alt="">
+                                                <div class="img-box-overlay" v-show="display5">
+                                                    <h4 class="img-box-overlay__title">いえなか菜園</h4>
+                                                    <p class="img-box-overlay__sub">HTML<br>Css<br>Javascript</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </article>
+                                <article class="article">
+                                    <a href="index.html">
+                                        <div class="work-img">
+                                            <div class="img-box" v-on:mouseover="mouseOver6" v-on:mouseleave="mouseLeave6">
+                                                <img class="work-content__img" src="./img/logo.jpg" alt="">
+                                                <div class="img-box-overlay" v-show="display6">
+                                                    <h4 class="img-box-overlay__title">準備中...</h4>
+                                                    <!-- <p class="img-box-overlay__sub"></p> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </article>
+                                
+                            </div>
+                            <!-- <div class="btn-wrap"  data-aos="fade-up" data-aos-duration="1000">
+                                <a href="" class="btn">More</a>
+                            </div> -->
+                        </div>
+                    </div>
+                </section>
+                <!-- About -->
+                <section class="section about" id="about">
+                    <div class="section-headline-right" data-aos="fade-left" data-aos-offset="100" data-aos-duration="500">
+                        <h2 class="section-headline-right__title">About</h2>
+                    </div>
+                    <div class="about-wrap" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="profile">
+                            <!-- <div class="profile-img">
+                                <img src="./img/profile_img.png" alt="">
+                            </div> -->
+                            <div class="profile-text">
+                                <h2 class="profile-text__name">武井 梨沙</h2>
+                                <p class="profile-text__introduction">熊本県在住<br>WEB制作をはじめ、ポスターデザイン、名刺デザイン、WEBアプリ制作のご依頼も受け付けております。</p>
+                                <p class="profile-text__job">・デザイン<br>・Webサイト制作<br>・Webアプリ制作</p>
+                            </div>
+                            <div class="skills">
+                                <h4 class="skills-title">Skills</h4>
+                                <p class="skills-contents">HTML / CSS<br>Sass<br>Javascript<br>Vue<br>WordPress<br>STUDIO<br>XD<br>Photoshop<br>Illustrator</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Contact -->
+            <section class="section contact" id="contact">
+                <div class="section-headline" data-aos="fade-right" data-aos-offset="100" data-aos-easing="ease-in-sine">
+                    <h2 class="section-headline__title">Contact</h2>
+                </div>
+
+                <div class="contact-wrap">
+                    <p class="contact-text">制作の依頼、ご相談<br>あったらいいな、こんなのできる？<br>などお気軽にお問合せください。</p>
+                    <div class="sns-link">
+                        <a class="sns-link-icon__twitter" href="https://twitter.com/tkrs1023"><i class="fab fa-twitter fa-3x"></i></a>
+                        <span>or</span>
+                        <a class="sns-link-icon__mail" href="mailto:risapodo@gmail.com"><i class="fas fa-envelope fa-3x"></i></a>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer">
+                <div class="copyrigths">
+                    2022 ©︎ TAKEI RISA All Rights Reserved.
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="./js/main.js"></script>
+</body>
+</html>
